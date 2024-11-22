@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ENABLESINESCALE_ON
   - _ENABLEUVSCROLL_ON
   - _SHADERFADING_NONE
   - _SHADERSPACE_UV
@@ -251,7 +252,7 @@ Material:
     - _EnableSineGlow: 0
     - _EnableSineMove: 0
     - _EnableSineRotate: 0
-    - _EnableSineScale: 0
+    - _EnableSineScale: 1
     - _EnableSmoke: 0
     - _EnableSmoothPixelArt: 0
     - _EnableSourceAlphaDissolve: 0
@@ -416,7 +417,7 @@ Material:
     - _SineRotateAngle: 15
     - _SineRotateFade: 1
     - _SineRotateFrequency: 1
-    - _SineScaleFrequency: 2
+    - _SineScaleFrequency: 0.35
     - _SmokeAlpha: 1
     - _SmokeDarkEdge: 1
     - _SmokeNoiseFactor: 0.4
@@ -495,7 +496,7 @@ Material:
     - _VertexTintFirst: 0
     - _VibrateFade: 1
     - _VibrateFrequency: 100
-    - _VibrateOffset: 0.04
+    - _VibrateOffset: 1.03
     - _VibrateRotation: 4
     - _WiggleFade: 1
     - _WiggleFixedGroundToggle: 0

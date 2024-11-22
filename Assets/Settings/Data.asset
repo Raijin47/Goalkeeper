@@ -18,7 +18,7 @@ MonoBehaviour:
   _decreaseScore: 100
   _complexity:
   - _force: 5
-    _intervalSpawn: 4
+    _intervalSpawn: 3
     _chanceGarbage: 0.1
   - _force: 7
     _intervalSpawn: 3
