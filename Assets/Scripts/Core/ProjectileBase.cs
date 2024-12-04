@@ -20,7 +20,7 @@ public abstract class ProjectileBase : PoolMember
         set
         {
             _fadeValue = value;
-            _material.SetFloat(FadePropertyID, _fadeValue);
+            //_material.SetFloat(FadePropertyID, _fadeValue);
             //_materialPropertyBlock.SetFloat(FadePropertyID, _fadeValue);
             //_spriteRenderer.SetPropertyBlock(_materialPropertyBlock);
         }
@@ -51,15 +51,15 @@ public abstract class ProjectileBase : PoolMember
 
     private IEnumerator FadingProcess()
     {
-        FadeValue = 1;
+        FadeValue = 10;
 
         while (FadeValue > 0)
         {
-            FadeValue -= Time.deltaTime;
+            //FadeValue -= Time.deltaTime;
 
             if (FadeValue <= 0)
             {
-                FadeValue = 1;
+                FadeValue = 10;
                 ReturnToPool();
                 yield break;
             }

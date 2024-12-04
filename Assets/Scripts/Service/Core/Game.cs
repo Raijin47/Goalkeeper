@@ -54,6 +54,11 @@ public class Game : MonoBehaviour
         return (T)_components.FirstOrDefault(component => component is T);
     }
 
+    public void SetCountYellowCard(int count)
+    {
+        Locator.yellowCard = count;
+    }
+
     public void StartGame() => Action.SendStartGame();
     public void GameOver() => Action.SendGameOver();
     public void Restart() => Action.SendRestart();

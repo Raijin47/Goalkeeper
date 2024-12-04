@@ -15,4 +15,13 @@ public class Locator
     public LeagueData Data => _data;
     public TotalScore Score => _score;
     public Bootstrap Bootstrap => _bootstrap;
+    public int yellowCard = 0;
+
+    internal void AddYellowCard(int v)
+    {
+        yellowCard += v;
+
+        if(yellowCard >= 3)
+            Game.Instance.GameOver();      
+    }
 }

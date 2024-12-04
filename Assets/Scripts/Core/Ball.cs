@@ -9,6 +9,6 @@ public class Ball : ProjectileBase
     public override void ResetData()
     {
         Collider.enabled = true;
-        FadeValue = 1;
+        FadeValue = 10;
     }
 }

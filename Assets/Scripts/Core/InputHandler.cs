@@ -13,7 +13,7 @@ public class InputHandler : MonoBehaviour
         get => _target;
         private set
         {
-            _target = new Vector2(Mathf.Clamp(value.x, -_limitX, _limitX), Mathf.Clamp(value.y, 0, _limitY));
+            _target = new Vector2(Mathf.Clamp(value.x, -_limitX, _limitX), transform.position.y);
         }
     }
     private Camera _camera;

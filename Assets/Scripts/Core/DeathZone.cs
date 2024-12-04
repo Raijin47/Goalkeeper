@@ -14,6 +14,8 @@ public class DeathZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!IsActive) return;
-        Game.Locator.Score.Score -= Game.Locator.Data.DecreaseScore;
+
+        Game.Locator.AddYellowCard(1);
+        //Game.Locator.Score.Score -= Game.Locator.Data.DecreaseScore;
     }
 }

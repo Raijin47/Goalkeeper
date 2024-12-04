@@ -1,7 +1,9 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
+    [SerializeField] private GameObject _vfxHit;
     private Collider2D _collider;
     private float Force { get; set; }
     private int Score { get; set; }
@@ -40,10 +42,10 @@ public class PlayerBase : MonoBehaviour
     {
         if (collision.TryGetComponent(out Ball ball))
         {
-            Vector2 dir = Vector2.Reflect(ball.Rigidbody.velocity, Vector2.up);
-            ball.Rigidbody.velocity = Vector2.zero;
-            ball.Rigidbody.AddForce(dir.normalized * Force, ForceMode2D.Impulse);
-            ball.Collider.enabled = false;
+            // Vector2 dir = Vector2.Reflect(ball.Rigidbody.velocity, Vector2.up);
+            // ball.Rigidbody.velocity = Vector2.zero;
+            // ball.Rigidbody.AddForce(dir.normalized * Force, ForceMode2D.Impulse);
+            // ball.Collider.enabled = false;
             ball.Dispose();
 
             Game.Audio.PlayClip(0);
@@ -56,6 +58,34 @@ public class PlayerBase : MonoBehaviour
             Game.Action.SendGameOver();
         }
 
-   
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.TryGetComponent(out Ball ball))
+        {
+            // Vector2 dir = Vector2.Reflect(ball.Rigidbody.velocity, Vector2.up);
+            // ball.Rigidbody.velocity = Vector2.zero;
+            // ball.Rigidbody.AddForce(dir.normalized * Force, ForceMode2D.Impulse);
+            // ball.Collider.enabled = false;
+            ball.Dispose();
+
+            Game.Audio.PlayClip(0);
+            Game.Locator.Score.Score += Score;
+            Camera.main.transform.DOShakeRotation(0.1f, 2, 3);
+
+            Vector3 point = other.contacts[0].point;
+            if(_vfxHit != null)
+            {
+                Instantiate(_vfxHit, point, Quaternion.identity);
+            }
+        }
+
+        if (other.gameObject.TryGetComponent(out Garbage _))
+        {
+            Game.Locator.Score.Score -= 500;
+            Game.Action.SendGameOver();
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timerText;
-    private readonly float RequiredTime = 60f;
+    private float RequiredTime = 60f;
     private readonly WaitForSeconds Dalay = new(0.2f);
 
     private float _currentTime;
@@ -30,6 +30,7 @@ public class Timer : MonoBehaviour
 
     private void StartTimer()
     {
+        RequiredTime = Game.Locator.Data.TimeGame;
         Release();
         _coroutine = StartCoroutine(TimerProcess());
     }
